@@ -32,14 +32,22 @@ def CheckTargetPort(host, port):
 def LoginSSH(user, host):
     os.system("ssh {0}@{1}".format(user, host))
 
-
-
 def PortList(ports):
     list = ""
     for p in ports:
         list += p +","
     return list
 
+try:
+    host = str(sys.argv[1])
+    ports = str(sys.argv[2]).split(",")
+    print("Target aquired >> {0}:{1}".format(host, ports))
+    print(PingKnockOrdered(host, ports)) # Default for now ig
+except:
+    print("[-] Error")
+    print("USAGE: python PortKnock.py {host} {ports} {options}")
+    print("   EX: python PortKnock.py 127.0.0.0 22,23,80")
+# testing
 # print(CheckTargetPort(host, '22'))
 # print(PingKnockOrdered(host, ports))
-LoginSSH("super", "192.168.0.27")
+# LoginSSH("super", "192.168.0.27")
