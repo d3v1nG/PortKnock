@@ -1,5 +1,6 @@
 import nmap
 import sys #for sys.argv down the road
+import os
 
 # hard coded for quick testing
 # host = "192.168.21.201"
@@ -28,6 +29,11 @@ def CheckTargetPort(host, port):
     status = res.get('scan').get(host).get('tcp').get(int(port))
     return status.get('state')
 
+def LoginSSH(user, host):
+    os.system("ssh {0}@{1}".format(user, host))
+
+
+
 def PortList(ports):
     list = ""
     for p in ports:
@@ -35,4 +41,5 @@ def PortList(ports):
     return list
 
 # print(CheckTargetPort(host, '22'))
-print(PingKnockOrdered(host, ports))
+# print(PingKnockOrdered(host, ports))
+LoginSSH("super", "192.168.0.27")
