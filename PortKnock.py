@@ -57,16 +57,19 @@ class PortKnock():
             list += p +","
         return list
 
-# try:
-#     host = str(sys.argv[1])
-#     ports = str(sys.argv[2]).split(",")
-#     print("Target aquired >> {0}:{1}".format(host, ports))
-#     scanner = PortKnock(host, ports)
-#     print(scanner.PingKnockOrdered())
-# except:
-#     print("[-] Error")
-#     print("USAGE: python PortKnock.py {host} {ports} {options}")
-#     print("   EX: python PortKnock.py 127.0.0.0 22,23,80")
+try:
+    # host = str(sys.argv[1])
+    # ports = str(sys.argv[2]).split(",")
+    host = "192.168.21.201"
+    ports = [ "2348", "3173", "9252", "1532" ]
+    print("Target aquired >> {0}:{1}".format(host, ports))
+    scanner = PortKnock(host, ports)
+    print(scanner.PingKnockOrdered())
+except Exception as e:
+    print(e)
+    # print("[-] Error")
+    # print("USAGE: python PortKnock.py {host} {ports} {options}")
+    # print("   EX: python PortKnock.py 127.0.0.0 22,23,80")
 
 # testing
 # print(CheckTargetPort(host, '22'))
